@@ -1,6 +1,6 @@
 /**************************************************************************
 
-更新日期：2020年8月16日
+更新日期：2020年9月7日
 说明：目前接口大部分完成，动态获取进程本身md5的部分还没完成
 注意：
 请将C++语言标准设置为std:C++17!!!!!!!!!!
@@ -437,7 +437,7 @@ namespace NETWORK
 			PostMsgInfo.push_back(api);
 			Info Var1;
 			Var1.Key = xorstr("user").crypt_get();
-			Var1.Value = user;
+			Var1.Value = this->GetUser();
 			PostMsgInfo.push_back(Var1);
 
 
@@ -495,11 +495,11 @@ namespace NETWORK
 			PostMsgInfo.push_back(api);
 			Info Var1;
 			Var1.Key = xorstr("user").crypt_get();
-			Var1.Value = user;
+			Var1.Value = this->GetUser();
 			PostMsgInfo.push_back(Var1);
 			Info Var2;
 			Var2.Key = xorstr("pwd").crypt_get();
-			Var2.Value = pass;
+			Var2.Value = this->GetPass();
 			PostMsgInfo.push_back(Var2);
 			Info Var3;
 			Var3.Key = xorstr("str").crypt_get();
@@ -631,7 +631,7 @@ namespace NETWORK
 			PostMsgInfo.push_back(api);
 			Info Var1;
 			Var1.Key = xorstr("user").crypt_get();
-			Var1.Value = this->user;
+			Var1.Value = this->GetUser();
 			PostMsgInfo.push_back(Var1);
 			Info Var2;
 			Var2.Key = xorstr("num").crypt_get();
@@ -699,7 +699,7 @@ namespace NETWORK
 			PostMsgInfo.push_back(api);
 			Info Var1;
 			Var1.Key = xorstr("user").crypt_get();
-			Var1.Value = user;
+			Var1.Value = this->GetUser();
 			PostMsgInfo.push_back(Var1);
 			Info Var3;
 			Var3.Key = xorstr("num").crypt_get();
@@ -753,7 +753,7 @@ namespace NETWORK
 			PostMsgInfo.push_back(api);
 			Info Var1;
 			Var1.Key = xorstr("user").crypt_get();
-			Var1.Value = user;
+			Var1.Value = this->GetUser();
 			PostMsgInfo.push_back(Var1);
 
 			//测试

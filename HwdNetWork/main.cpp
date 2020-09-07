@@ -14,16 +14,19 @@ NETWORK::CHwdNetWork* net = nullptr;
 
 int main()
 {
+
+
+    /*在此处填写软件位相关的信息！！！！！！！！！！！*/
 	net = new NETWORK::CHwdNetWork(
-		xorstr("YwqprshWcNdPksUUVnbaoox7boE73P6N").crypt_get()/*通讯密钥*/,
-		xorstr("773c1e72-4d4a-4ef0-b970-bb4772c5a7b2").crypt_get()/*软件sid*/,
+		xorstr("oudHA6NQ2YYC9b3D36xxXGoR3RkM5T7s").crypt_get()/*通讯密钥*/,
+		xorstr("c398ebb5-114c-4258-bb5e-d97bff7a370b").crypt_get()/*软件sid*/,
 		xorstr("ab310ac13de1e8c6c582b420bb014d05").crypt_get()/*ModuleMd5购买授权后获得*/,
 		xorstr("e46f708329ce3f6c4d8cb1f7579f3d64").crypt_get()/*webkey*购买授权后获得*/,
-		xorstr("[data]123123[key]asdfg").crypt_get()/*客户端sign规则*/,
-		xorstr("[data]asdfg[key]123123").crypt_get()/*客户端sign规则*/,
+		xorstr("[data]123[key]abc").crypt_get()/*客户端sign规则*/,
+		xorstr("[data]cba[key]321").crypt_get()/*服务端sign规则*/,
 		80/*服务器端口*/,
 		xorstr("").crypt_get()/*服务器地址如：127.0.0.1*/,
-		xorstr("en.php?s=3f454239fd1a5385f1955449ba5a3b6f").crypt_get()/*请求页*/);
+		xorstr("en.php?s=8d703e0cf4c7f1434c4540a1f2066cc3").crypt_get()/*请求页*/);
 
     static size_t 请求次 = 0;
     static bool isOk = false;
@@ -40,6 +43,29 @@ int main()
     std::cout << "软件版本:" << net->GetVersion() << std::endl;
     std::cout << "客服qq:" << net->GetQq() << std::endl;
     std::cout << "软件下载地址:" << net->GetDownloadurl() << std::endl;
+
+    if (net->UserLogin("HZUWCFF6n39MEBQK", "HZUWCFF6n39MEBQK"))
+    {
+        std::cout << "登录成功" << std::endl;
+        std::cout << "余额"<<net->GetPoint() << std::endl;
+    }
+    else
+    {
+        std::cout << "登录失败" << std::endl;
+        std::cout << "原因：" << net->GetLastErroMsg() << std::endl;
+    }
+    if (net->DeductPoint("1", NETWORK::DEDUCTPOINTMODE::ONEDAY_ONCE))
+    {
+        std::cout << "扣点成功" << std::endl;
+        std::cout << "余额：" << net->GetPoint() << std::endl;
+    }
+    else
+    {
+        std::cout << "扣点失败" << std::endl;
+        std::cout << "原因：" << net->GetLastErroMsg() << std::endl;
+    }
+
+
 
     system("pause");
 	return 0;
