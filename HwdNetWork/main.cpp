@@ -38,12 +38,24 @@ int main()
         return 0 ;
     }
 
+
+    /*
+    验证进行通讯后，“余额”、“卡密”、“到期时间”。。。。等等信息都会在验证的对象中静态保存，但是它们都是以加密的形式 保存的，
+    使用
+    NETWORK::CHwdNetWork::Getxxxx()方法获取才能获取到解密后的数据，如下面的
+    GetNotice  GetName GetVersion GetQq 等等
+    
+    */
+
     std::cout << "公告:" << net->GetNotice() << std::endl;
     std::cout << "软件名字:" << net->GetName() << std::endl;
     std::cout << "软件版本:" << net->GetVersion() << std::endl;
     std::cout << "客服qq:" << net->GetQq() << std::endl;
     std::cout << "软件下载地址:" << net->GetDownloadurl() << std::endl;
 
+
+
+    //这是卡密登录的例子，把账户密码都填卡密就可以了
     if (net->UserLogin("HZUWCFF6n39MEBQK", "HZUWCFF6n39MEBQK"))
     {
         std::cout << "登录成功" << std::endl;
@@ -54,6 +66,8 @@ int main()
         std::cout << "登录失败" << std::endl;
         std::cout << "原因：" << net->GetLastErroMsg() << std::endl;
     }
+
+    //扣点：NETWORK::DEDUCTPOINTMODE是一个枚举类型，EVERYTIME_ONCE代表每次都扣点，ONEDAY_ONCE代表每天每台机器不重复扣点
     if (net->DeductPoint("1", NETWORK::DEDUCTPOINTMODE::ONEDAY_ONCE))
     {
         std::cout << "扣点成功" << std::endl;
