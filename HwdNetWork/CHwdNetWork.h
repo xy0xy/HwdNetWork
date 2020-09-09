@@ -341,7 +341,8 @@ namespace NETWORK
 					result.Get(xorstr("qq").crypt_get(), this->qq);
 					result.Get(xorstr("downloadurl").crypt_get(), this->downloadurl);
 					result.Get(xorstr("updateurl").crypt_get(), this->updateurl);
-
+					this->notice = replace_all(this->notice,"<p>" , " ");
+					this->notice = replace_all(this->notice, "</p>", " ");
 					this->notice = aes_256_cbc_encode(notice, 本地字串加密key);
 					this->name = aes_256_cbc_encode(name, 本地字串加密key);
 					this->version = aes_256_cbc_encode(version, 本地字串加密key);
