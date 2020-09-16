@@ -962,31 +962,6 @@ namespace NETWORK
 
 			return strRet;
 		}
-		std::string UTF8_To_string(char* szCode)
-		{
-			string strRet = "";
-			for (int i = 0; i < 4; i++)
-			{
-				if (szCode[i] >= '0' && szCode[i] <= '9')	continue;
-				if (szCode[i] >= 'A' && szCode[i] <= 'F')	continue;
-				if (szCode[i] >= 'a' && szCode[i] <= 'f')	continue;
-				return strRet;
-			}
-
-			char unicode_hex[5] = { 0 };
-			memcpy(unicode_hex, szCode, 4);
-			unsigned int iCode = 0;
-			sscanf_s(unicode_hex, "%04x", &iCode);
-			wchar_t wchChar[4] = { 0 };
-			wchChar[0] = iCode;
-
-			char szAnsi[8] = { 0 };
-			WideCharToMultiByte(CP_ACP, NULL, wchChar, 1, szAnsi, sizeof(szAnsi), NULL, NULL);
-			strRet = string(szAnsi);
-
-			return strRet;
-
-		}
 		//×Ö´®×ª»»
 		std::string string_To_UTF8(const std::string& str)
 		{
