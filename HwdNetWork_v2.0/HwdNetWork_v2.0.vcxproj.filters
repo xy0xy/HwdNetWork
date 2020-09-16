@@ -13,5 +13,63 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="json">
+      <UniqueIdentifier>{db24dc17-94e4-40fa-a728-0aa96eedb689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aes">
+      <UniqueIdentifier>{db141f98-82bc-4808-ba87-79b2cba6539d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tool">
+      <UniqueIdentifier>{2fe6dc5a-d122-4724-bac1-4403b010be5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="http">
+      <UniqueIdentifier>{fc22e3f6-4259-4852-9772-c421c9b2dada}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CHwdNetWork.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="json\cJSON.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\CJsonObject.hpp">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="aes\aes.hpp">
+      <Filter>aes</Filter>
+    </ClInclude>
+    <ClInclude Include="http\httplib.h">
+      <Filter>http</Filter>
+    </ClInclude>
+    <ClInclude Include="tool\EncodingConversion.hpp">
+      <Filter>tool</Filter>
+    </ClInclude>
+    <ClInclude Include="tool\HardWare.hpp">
+      <Filter>tool</Filter>
+    </ClInclude>
+    <ClInclude Include="tool\md5.hpp">
+      <Filter>tool</Filter>
+    </ClInclude>
+    <ClInclude Include="tool\UrlEncoder.hpp">
+      <Filter>tool</Filter>
+    </ClInclude>
+    <ClInclude Include="tool\uuid.hpp">
+      <Filter>tool</Filter>
+    </ClInclude>
+    <ClInclude Include="tool\XorStr.hpp">
+      <Filter>tool</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="json\cJSON.c">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="json\CJsonObject.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
